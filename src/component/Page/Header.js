@@ -1,0 +1,51 @@
+import React from 'react';
+import { Button } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
+
+const Header = () => {
+    return (
+        <div className='mb-5'>
+            <h2>header Page</h2>
+            <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand  className='text-primary  ' style={{ width: '15rem' }}>Academic-Earth</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link >
+                <Link to='/'>
+                    <Button className='btn btn-light'>Course</Button>
+                </Link>
+            </Nav.Link>
+            <Nav.Link >
+                <Link to='/blog'>
+                    <Button className='btn btn-light'>Blog</Button>
+                </Link>
+            </Nav.Link>
+
+            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown> */}
+            
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+            
+        </div>
+    );
+};
+
+export default Header;
