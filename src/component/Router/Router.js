@@ -3,6 +3,7 @@ import Blog from "../Page/Share/Blog";
 import Course from "../Page/Share/Course";
 import Home from "../Page/Share/Home";
 import Login from "../Page/Share/Login";
+import News from "../Page/Share/News";
 import Register from "../Page/Share/Register";
 import Main from "./Main";
 
@@ -19,8 +20,15 @@ export const router = createBrowserRouter ([
                 loader: () => fetch('http://localhost:5000/learning')
             },
             {
-                path: '/course',
-                element: <Course></Course>
+                path: '/category/:id',
+                element: <Course></Course>,
+                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                
+            },
+            {
+                path:'/learning/:id',
+                element: <News></News>,
+                loader: ({params}) => fetch(`http://localhost:5000/learning/${params.id}`)
             },
             {
                 path:'/blog',

@@ -3,14 +3,14 @@ import { useLoaderData } from 'react-router-dom';
 import NewsSummary from '../Info/NewsSummary';
 
 const Home = () => {
-    const data = useLoaderData()
+    const homeData = useLoaderData()
     return (
         <div>
-            <h2>Home page: {data.length}</h2>
+            <h2>Home page: {homeData.length}</h2>
             {
-              data.map(info => <NewsSummary 
-              key={info}
-              info={info}
+              homeData.map(data => <NewsSummary 
+              key={data._id}
+              data={data}
               ></NewsSummary>)  
             }
         </div>
