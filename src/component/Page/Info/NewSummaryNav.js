@@ -4,11 +4,11 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 const NewSummaryNav = ({ category }) => {
-    console.log(category);
+    // console.log(category);
     const { photo_url, name, details } = category
     return (
-        <div className='col d-flex justify-content-center'>
-            <Card style={{ width: '18rem' }} className=" mt-3">
+        <div className='col d-flex justify-content-center '>
+            <Card style={{ width: '18rem' }} className=" mt-3 ">
                 <Card.Img variant="top" src={photo_url} />
                 <Card.Body >
                     <p><small>{details}</small></p>

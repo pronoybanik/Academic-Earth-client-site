@@ -7,16 +7,21 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className='mb-5'>
-            <h2>header Page</h2>
-            <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand  className='text-primary  ' style={{ width: '15rem' }}>Academic-Earth</Navbar.Brand>
+        <div className='mb-5 sticky-top'>
+            
+            <Navbar bg="light" expand="lg" >
+      <Container >
+        <Navbar.Brand  className='text-primary '   style={{ width: '15rem' }}>Academic-Earth</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link >
                 <Link to='/'>
+                    <Button className='btn btn-light'>Home</Button>
+                </Link>
+            </Nav.Link>
+            <Nav.Link >
+                <Link to='/course'>
                     <Button className='btn btn-light'>Course</Button>
                 </Link>
             </Nav.Link>
