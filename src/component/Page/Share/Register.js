@@ -31,7 +31,43 @@ const Register = () => {
 
     // email or password login
 
-    
+    const handleSubmit = event => {
+        event.preventDefault()
+        const from = event.target;
+        const name = from.name.value;
+        const photo = from.photoURL.value;
+        const email = from.email.value;
+        const password = from.password.value;
+        console.log(name, email, password);
+
+        createUser(email, password)
+
+            .then(result => {
+                const user = result.user
+                console.log(user);
+                from.reset('')
+                handleUpdateUserProfile(name, photo)
+                toast.success('success fully register')
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+
+            })
+    }
+
+    // update name
+
+    const handleUpdateUserProfile = (name, photoURL) =>{
+        const profile ={
+            displayName: name,
+            photoURL: photoURL
+           
+        }
+        updateUseProfiles(profile)
+        .then(() => {})
+        .catch(error => console.error(error))
+    }
 
     
 
