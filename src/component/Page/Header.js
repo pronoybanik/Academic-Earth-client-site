@@ -1,18 +1,31 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import { FaXRay } from "react-icons/fa";
+import { FaUser, FaXRay } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../Router/AuthProvider';
+
+
+
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
+
     return (
         <div className='mb-5 sticky-top'>
 
             <Navbar bg="light" expand="lg" >
                 <Container >
-                    
+
                     <Navbar.Brand className='text-primary ' style={{ width: '15rem' }}><FaXRay></FaXRay>  Academic-Earth</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -32,28 +45,44 @@ const Header = () => {
                                     <Button className='btn btn-light'>Blog</Button>
                                 </Link>
                             </Nav.Link>
-
-                            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
-
                         </Nav>
                         <div>
-                            <Link to='/login'>
-                                <Button className='btn btn-light'>LogIn</Button>
-                            </Link>
-                            <Link to='register'>
-                                <Button className='btn btn-light'>Register</Button>
-                            </Link>
+                            {
+                                user?.uid ?
+                                    <>
+
+                                        <Button className='btn-info' onClick={handleLogout}>Log Out</Button>
+                                        <p className=''>Name: {user?.displayName}</p>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to='/login'>
+
+                                            <Button className='btn btn-light'>LogIn</Button>
+                                        </Link>
+                                        <Link to='/register'>
+                                            <Button className='btn btn-light'>Register</Button>
+                                        </Link>
+                                    </>
+
+                            }
                         </div>
+
+                        <div className='me-2 mt-2'>
+                            {user?.photoURL ?
+                                <Image
+                                    style={{ height: '30px' }}
+                                    roundedCircle
+                                    src={user?.photoURL}>
+
+                                </Image>
+                                : <FaUser></FaUser>
+                            }
+                        </div>
+
+
+
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

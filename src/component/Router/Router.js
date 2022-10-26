@@ -7,6 +7,7 @@ import News from "../Page/Share/News";
 import PremiumCourse from "../Page/Share/PremiumCourse";
 import Register from "../Page/Share/Register";
 import Main from "./Main";
+import PrivateRouter from "./PrivateRouter";
 
 
 
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/premiumcourse',
-                element: <PremiumCourse></PremiumCourse>,
+                element: <PrivateRouter><PremiumCourse></PremiumCourse></PrivateRouter>,
                 loader: () => fetch('http://localhost:5000/learning')
             },
             {

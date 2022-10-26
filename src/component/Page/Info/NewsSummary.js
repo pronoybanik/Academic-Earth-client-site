@@ -28,8 +28,10 @@ const NewsSummary = ({ data }) => {
                                     }
                                 </Card.Text>
                                 <Link to={`/course/${_id}`}>
-                                <Button variant="dark">Bye The Course</Button>
                                 </Link>
+                                <Button className="bg-info  border-0 text-light" >
+                                    <Link to='/premiumcourse' className='text-light'>Bye The Course</Link>
+                                </Button>
                             </Card.Body>
                         </Card>
                     </Col>

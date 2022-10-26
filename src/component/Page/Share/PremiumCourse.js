@@ -8,7 +8,7 @@ const PremiumCourse = () => {
 
     return (
         <div>
-            <h2>that is PremiumCourse: {courseData.length}</h2>
+            <h2> Premium Course</h2>
             {
                 courseData.map(data => <PremiumCard
                 key={data}
