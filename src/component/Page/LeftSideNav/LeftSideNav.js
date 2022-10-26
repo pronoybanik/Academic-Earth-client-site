@@ -14,12 +14,12 @@ const LeftSideNav = () => {
     }, [])
     return (
         <div>
-            <h2>LestSideNav page: {categories.length}</h2>
+            <h1>That Type Of  Course We Have Join</h1>
             {
                 categories.map(category => <NewSummaryNav
-                key={category}
-                category={category}
-                
+                    key={category}
+                    category={category}
+
                 ></NewSummaryNav>)
             }
         </div>

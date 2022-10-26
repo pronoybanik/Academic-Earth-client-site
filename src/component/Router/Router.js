@@ -4,12 +4,13 @@ import Course from "../Page/Share/Course";
 import Home from "../Page/Share/Home";
 import Login from "../Page/Share/Login";
 import News from "../Page/Share/News";
+import PremiumCourse from "../Page/Share/PremiumCourse";
 import Register from "../Page/Share/Register";
 import Main from "./Main";
 
 
 
-export const router = createBrowserRouter ([
+export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
@@ -22,24 +23,29 @@ export const router = createBrowserRouter ([
             {
                 path: '/category/:id',
                 element: <Course></Course>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
-                
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+
             },
             {
-                path:'/learning/:id',
+                path: '/premiumcourse',
+                element: <PremiumCourse></PremiumCourse>,
+                loader: () => fetch('http://localhost:5000/learning')
+            },
+            {
+                path: '/learning/:id',
                 element: <News></News>,
-                loader: ({params}) => fetch(`http://localhost:5000/learning/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/learning/${params.id}`)
             },
             {
-                path:'/blog',
+                path: '/blog',
                 element: <Blog></Blog>
             },
             {
-                path:'login',
+                path: 'login',
                 element: <Login></Login>
             },
             {
-                path:'register',
+                path: 'register',
                 element: <Register></Register>
             }
         ]

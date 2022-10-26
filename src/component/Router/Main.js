@@ -7,11 +7,11 @@ import LeftSideNav from '../Page/LeftSideNav/LeftSideNav';
 const Main = () => {
     return (
         <div>
-            <h2>main page</h2>
+            
             <Header></Header>
             <Container>
             <Row>
-                <Col lg='5' className='bg-info'>
+                <Col lg='5' className='bg-light'>
             <LeftSideNav></LeftSideNav>    
                 </Col>
                 <Col lg='7'>
