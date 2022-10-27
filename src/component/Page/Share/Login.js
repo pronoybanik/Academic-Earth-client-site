@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -18,6 +18,19 @@ const Login = () => {
 
     //   google login
     const provider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider()
+
+    const handleFacebook = () => {
+        googleLogin(facebookProvider)
+            .then(result => {
+                const user = result.user
+                console.log(user);
+
+
+            })
+            .catch(error => console.error(error))
+    }
+
 
     const handleGoogle = () => {
         googleLogin(provider)
@@ -78,7 +91,7 @@ const Login = () => {
                 <div className='mt-2'>
                     <Button onClick={handleGoogle} className='mb-2' variant="outline-primary "><FaGoogle></FaGoogle> Login with Google </Button>
                     <br />
-                    <Button variant="outline-secondary"><FaFacebookF></FaFacebookF> Login With Github</Button>
+                    <Button onClick={handleFacebook} variant="outline-secondary"><FaFacebookF></FaFacebookF> Login With FaceBook</Button>
                 </div>
             </Form>
         </div>

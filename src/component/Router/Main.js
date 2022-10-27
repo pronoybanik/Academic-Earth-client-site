@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import Header from '../Page/Header';
 import LeftSideNav from '../Page/LeftSideNav/LeftSideNav';
+import Footer from '../Page/Share/Footer';
 
 const Main = () => {
     return (
@@ -19,6 +20,7 @@ const Main = () => {
                 </Col>
             </Row>
             </Container>
+            <Footer></Footer>
         </div>
     );
 };

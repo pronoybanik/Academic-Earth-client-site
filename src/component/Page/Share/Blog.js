@@ -6,7 +6,7 @@ const Blog = () => {
     return (
         <div>
             <h2>That Is Blog</h2>
-            <Card>
+            <Card className='mb-4'>
                 <Card.Header>1- what is cors?</Card.Header>
                 <Card.Body>
 
@@ -16,7 +16,7 @@ const Blog = () => {
 
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className='mb-4'>
                 <Card.Header>2- Why are you using firebase? What other options do you have to implement authentication?</Card.Header>
                 <Card.Body>
 
@@ -26,7 +26,7 @@ const Blog = () => {
 
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className='mb-4'>
                 <Card.Header>3- How does the private route work?</Card.Header>
                 <Card.Body>
 
@@ -36,7 +36,7 @@ const Blog = () => {
 
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className='mb-4'>
                 <Card.Header>4-  What is Node? How does Node work? </Card.Header>
                 <Card.Body>
 
@@ -46,6 +46,25 @@ const Blog = () => {
 
                 </Card.Body>
             </Card>
+            <Card className='mb-4'>
+                
+                <Card.Body>
+                    <h1>points:</h1>
+
+                    <Card.Text>
+                    <p>website Name: Academic-Earth</p>
+                    <h3>Main point</h3>
+                    <p>1. use bootstrap</p>
+                    <p>2. use hero icons</p>
+                    <p>3. backend server you can change</p>
+                    <p>4. login system use facebook and google</p>
+                    <p>5. register system in good</p>
+                    </Card.Text>
+
+                </Card.Body>
+            </Card>
+
+            
         </div>
     );
 };

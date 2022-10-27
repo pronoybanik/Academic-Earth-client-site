@@ -11,13 +11,19 @@ import { AuthContext } from '../Router/AuthProvider';
 
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, toggleTheme } = useContext(AuthContext)
 
     const handleLogout = () => {
         logOut()
             .then(() => { })
             .catch(error => console.error(error));
     }
+
+    const hendleToggle = () => {
+        toggleTheme()
+    }
+
+
 
 
     return (
@@ -52,7 +58,7 @@ const Header = () => {
                                     <>
 
                                         <Button className='btn-info' onClick={handleLogout}>Log Out</Button>
-                                        <p className=''>Name: {user?.displayName}</p>
+                                        {/* <p className=''>Name: {user?.displayName}</p> */}
                                     </>
                                     :
                                     <>
@@ -83,6 +89,11 @@ const Header = () => {
                                 : <FaUser></FaUser>
                             }
                         </div>
+
+                        <Link >
+                            <Button onClick={hendleToggle} type="button" class="btn btn-light ">Black</Button>
+                            <Button onClick={hendleToggle} type="button" class="btn btn-light">Light</Button>
+                        </Link>
 
 
 

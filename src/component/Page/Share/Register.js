@@ -1,11 +1,11 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 import { AuthContext } from '../../Router/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -16,6 +16,18 @@ const Register = () => {
 
     // Google login
     const provider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider()
+
+    const handleFacebook = () => {
+        googleLogin(facebookProvider)
+            .then(result => {
+                const user = result.user
+                console.log(user);
+
+
+            })
+            .catch(error => console.error(error))
+    }
 
     const handleGoogle = () => {
         googleLogin(provider)
@@ -47,7 +59,7 @@ const Register = () => {
                 console.log(user);
                 from.reset('')
                 handleUpdateUserProfile(name, photo)
-                toast.success('success fully register')
+                
             })
             .catch(error => {
                 console.error(error);
@@ -114,7 +126,7 @@ const Register = () => {
                 <div className='mt-2'>
                     <Button onClick={handleGoogle} className='mb-2' variant="outline-primary "><FaGoogle></FaGoogle> Login with Google </Button>
                     <br />
-                    <Button variant="outline-secondary"><FaFacebookF></FaFacebookF> Login With Github</Button>
+                    <Button onClick={handleFacebook} variant="outline-secondary"><FaFacebookF></FaFacebookF> Login With FaceBook</Button>
                 </div>
 
             </Form>
