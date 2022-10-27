@@ -19,23 +19,23 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/learning')
+                loader: () => fetch('https://academic-earth-server-pronoybanik.vercel.app/learning')
             },
             {
                 path: '/category/:id',
                 element: <Course></Course>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://academic-earth-server-pronoybanik.vercel.app/category/${params.id}`)
 
             },
             {
                 path: '/premiumcourse',
                 element: <PrivateRouter><PremiumCourse></PremiumCourse></PrivateRouter>,
-                loader: () => fetch('http://localhost:5000/learning')
+                loader: () => fetch('https://academic-earth-server-pronoybanik.vercel.app/learning')
             },
             {
                 path: '/learning/:id',
                 element: <News></News>,
-                loader: ({ params }) => fetch(`http://localhost:5000/learning/${params.id}`)
+                loader: ({ params }) => fetch(`https://academic-earth-server-pronoybanik.vercel.app/learning/${params.id}`)
             },
             {
                 path: '/blog',

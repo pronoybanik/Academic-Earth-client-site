@@ -8,7 +8,7 @@ const LeftSideNav = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/subject-categories')
+        fetch('https://academic-earth-server-pronoybanik.vercel.app/subject-categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])

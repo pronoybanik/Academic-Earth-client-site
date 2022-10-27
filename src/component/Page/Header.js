@@ -58,7 +58,7 @@ const Header = () => {
                                     <>
 
                                         <Button className='btn-info' onClick={handleLogout}>Log Out</Button>
-                                        {/* <p className=''>Name: {user?.displayName}</p> */}
+                                        <p className=''>Name: {user?.displayName}</p>
                                     </>
                                     :
                                     <>
