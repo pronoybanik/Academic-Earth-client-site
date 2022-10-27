@@ -1,9 +1,51 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const Blog = () => {
     return (
         <div>
-            <h2>that is Blog</h2>
+            <h2>That Is Blog</h2>
+            <Card>
+                <Card.Header>1- what is cors?</Card.Header>
+                <Card.Body>
+
+                    <Card.Text>
+                        The CORS mechanism supports secure cross-origin requests and data transfers between browsers and servers. Modern browsers use CORS in APIs such as XMLHttpRequest or Fetch to mitigate the risks of cross-origin HTTP requests.
+                    </Card.Text>
+
+                </Card.Body>
+            </Card>
+            <Card>
+                <Card.Header>2- Why are you using firebase? What other options do you have to implement authentication?</Card.Header>
+                <Card.Body>
+
+                    <Card.Text>
+                    Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
+                    </Card.Text>
+
+                </Card.Body>
+            </Card>
+            <Card>
+                <Card.Header>3- How does the private route work?</Card.Header>
+                <Card.Body>
+
+                    <Card.Text>
+                    The react private route component renders child components  children if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.
+                    </Card.Text>
+
+                </Card.Body>
+            </Card>
+            <Card>
+                <Card.Header>4-  What is Node? How does Node work? </Card.Header>
+                <Card.Body>
+
+                    <Card.Text>
+                    Node. js is a JavaScript runtime environment that achieves low latency and high throughput by taking a non blocking approach to serving requests. In other words, Node. js wastes no time or resources on waiting for I/O requests to return
+                    </Card.Text>
+
+                </Card.Body>
+            </Card>
         </div>
     );
 };

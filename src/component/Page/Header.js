@@ -70,12 +70,16 @@ const Header = () => {
 
                         <div className='me-2 mt-2'>
                             {user?.photoURL ?
-                                <Image
-                                    style={{ height: '30px' }}
-                                    roundedCircle
-                                    src={user?.photoURL}>
+                                <>
+                                    <p className=''>Name: {user?.displayName}</p>
 
-                                </Image>
+                                    <Image
+                                        style={{ height: '30px' }}
+                                        roundedCircle
+                                        src={user?.photoURL}>
+
+                                    </Image>
+                                </>
                                 : <FaUser></FaUser>
                             }
                         </div>

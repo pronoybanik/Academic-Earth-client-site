@@ -11,21 +11,21 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState('');
-    const [lodear, setLodear] = useState(true);
+    const [loading, setLoading] = useState(true);
 
-    const googleLogin =(Provider) =>{
+    const googleLogin = (Provider) => {
         return signInWithPopup(auth, Provider)
     }
 
-    const createUser = (email, password) =>{
+    const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const updateUseProfiles = (profile) =>{
+    const updateUseProfiles = (profile) => {
         return updateProfile(auth.currentUser, profile)
-   }
+    }
 
-    const logInSite = (email, password) =>{
+    const logInSite = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            setLodear(false);
+            setLoading(false);
 
         })
         return () => {
@@ -49,17 +49,18 @@ const AuthProvider = ({ children }) => {
 
     }, [])
 
-    
-    const authInfo = { user,
-        lodear,
-         googleLogin,
-          createUser,
-           logInSite, 
-           logOut,
-           updateUseProfiles,
-        
-        };
-    
+
+    const authInfo = {
+        user,
+        loading,
+        googleLogin,
+        createUser,
+        logInSite,
+        logOut,
+        updateUseProfiles,
+
+    };
+
 
 
     return (
